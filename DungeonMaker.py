@@ -835,17 +835,22 @@ class MazeGame:
             pygame.display.set_caption("Maze Game")
             # Pygameのミキサーを初期化
             pygame.mixer.init()
-            # 効果音の読み込み
-            self.sounds = {
-                'hint': pygame.mixer.Sound(f'{MazeGame.SOUND_DIR}hint.mp3'),
-                'goal': pygame.mixer.Sound(f'{MazeGame.SOUND_DIR}goal.mp3'),
-                'teleport': pygame.mixer.Sound(f'{MazeGame.SOUND_DIR}teleport.mp3'),
-                'game_over': pygame.mixer.Sound(f'{MazeGame.SOUND_DIR}game_over.mp3'),
-                'hit_enemy': pygame.mixer.Sound(f'{MazeGame.SOUND_DIR}hit_enemy.mp3'),
-                'light': pygame.mixer.Sound(f'{MazeGame.SOUND_DIR}light.mp3'),
-                'light_end': pygame.mixer.Sound(f'{MazeGame.SOUND_DIR}light_end.mp3'),
-                'monster_move': pygame.mixer.Sound(f'{MazeGame.SOUND_DIR}monster_move.mp3')
+            sounds = {
+                'hint': 'hint.mp3',
+                'goal': 'goal.mp3',
+                'teleport': 'teleport.mp3',
+                'game_over': 'game_over.mp3',
+                'hit_enemy': 'hit_enemy.mp3',
+                'light': 'light.mp3',
+                'light_end': 'light_end.mp3',
+                'monster_move': 'monster_move.mp3'
             }
+            # 効果音の読み込み
+            self.sounds: dict[str,pygame.mixer.Sound] = {}
+            for s_key,s_name in sounds.items():
+                s_path = os.path.join(MazeGame.SOUND_DIR,s_name)
+                if os.path.exists(s_path):
+                    self.sounds[s_key] = pygame.mixer.Sound(s_path)
             MazeGame.FONT = pygame.font.Font(MazeGame.FONT_PATH(), MazeGame.FONTSIZE)
         self.initialize_items()
 
@@ -1535,10 +1540,3 @@ if __name__ == '__main__':
     print(sg_points)
     mg = MazeGame(result,labels,sg_points,5)
     mg.main()
-
-
-"""
-壁が1,通路を0とした迷路を表したndarrayと、その迷路の各セルがどの領域に含まれるかを表したndarrayと、その迷路のスタート、ゴール地点が各領域ごとに、領域番号をキー、[[スタート地点の候補のindexの集合],[ゴール地点の候補のindexの集合]]をvalueとしたdict,視界の範囲D（4近傍距離）を引数に取り、pygameでその迷路を遊ぶコードを書いてください。
-"""
-
-
