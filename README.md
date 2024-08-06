@@ -318,7 +318,7 @@ game.save_config_to_json("maze_config.json")
 
 #### <span style="color: #FF6B6B;">設定のカスタマイズ</span>
 
-> **Note:** この特別な色付きのセクションを読むのはあなた次第。ゲームの本来の経験を楽しみたい方は、スキップしても大丈夫です。好奇心旺盛な方は、新しい遊び方を発見できるかもしれません。
+> **Note:** この特別なセクションを読むのはあなた次第。ゲームの本来の経験を楽しみたい方は、スキップしても大丈夫です。好奇心旺盛な方は、新しい遊び方を発見できるかもしれません。
 
 `maze_config.json` ファイルを編集することで、ゲームの様々な要素をカスタマイズできます。以下は主な設定項目です：
 
@@ -355,19 +355,19 @@ pip install numpy pygame matplotlib scipy opencv-python
 
 ## プロジェクト構造
 
-PythonDungeonMaker1/
-│
-├── DungeonMaker.py       # メインのゲームロジックと迷路生成アルゴリズム
-├── maze_config.json      # ゲーム設定ファイル
-├── README.md             # プロジェクトの説明書
-├── LICENSE               # ライセンス情報
-│
-├── sounds/               # ゲーム内で使用する音声ファイル
-│   ├── hint.mp3
-│   ├── goal.mp3
-│   └── ...
-│
-└── log/                  # ゲームプレイのログファイル保存ディレクトリ
+PythonDungeonMaker1/  
+│  
+├── DungeonMaker.py       # メインのゲームロジックと迷路生成アルゴリズム  
+├── maze_config.json      # ゲーム設定ファイル  
+├── README.md             # プロジェクトの説明書  
+├── LICENSE               # ライセンス情報  
+│  
+├── sounds/               # ゲーム内で使用する音声ファイル  
+│   ├── hint.mp3  
+│   ├── goal.mp3  
+│   └── ...  
+│  
+└── log/                  # ゲームプレイのログファイル保存ディレクトリ  
 
 ## 音声ファイルについて
 
