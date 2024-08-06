@@ -442,9 +442,28 @@ Macでは、HGゴシックフォントがデフォルトで利用できないた
 
 ## 使用方法
 
-1. リポジトリをクローンまたはダウンロードします。
-2. 必要なライブラリをインストールします。
-3. `python DungeonMaker.py`を実行してゲームを開始します。
+### 環境のセットアップ
+
+1. まず、このリポジトリをクローンまたはダウンロードします：
+  ```
+  git clone https://github.com/Shinh0707/PythonDungeonMaker1.git
+  cd PythonDungeonMaker1
+  ```
+2. 必要なライブラリをインストールします：
+  ```
+  pip install numpy pygame matplotlib scipy opencv-python
+  ```
+3. 音声ファイルを `sounds/` ディレクトリに配置します（詳細は[音声ファイルについて](#音声ファイルについて)セクションを参照）。
+
+4. 必要に応じて、`maze_config.json` ファイルでゲームの設定をカスタマイズします。
+
+### ゲームの実行
+
+ゲームを開始するには、以下のコマンドを実行します：
+
+```python
+python DungeonMaker.py
+```
 
 ## 開発者向け情報
 
