@@ -1,0 +1,96 @@
+{
+    "WALL_COLOR": [
+        0,
+        0,
+        0
+    ],
+    "ROUTE_COLOR": [
+        255,
+        255,
+        255
+    ],
+    "UI_BACKGROUND_COLOR": [
+        0,
+        0,
+        0
+    ],
+    "GOAL_COLOR": [
+        0,
+        255,
+        0
+    ],
+    "PLAYER_COLOR": [
+        30,
+        144,
+        255
+    ],
+    "ENEMY_COLOR": [
+        128,
+        0,
+        32
+    ],
+    "GUAGE_BACKGROUND_COLOR": [
+        30,
+        30,
+        30
+    ],
+    "MP_GAUGE_COLOR": [
+        255,
+        128,
+        0
+    ],
+    "MP_GAUGE_LETTER_COLOR": [
+        255,
+        255,
+        255
+    ],
+    "ITEM_COOLDOWN_GUAGE_COLOR": [
+        124,
+        252,
+        0
+    ],
+    "SIGHT_GAUGE_COLOR": [
+        121,
+        205,
+        255
+    ],
+    "SIGHT_GAUGE_LETTER_COLOR": [
+        255,
+        255,
+        255
+    ],
+    "HINT_ARROW_COLOR": [
+        255,
+        243,
+        176
+    ],
+    "MAX_MP": 20,
+    "MAX_SIGHT": 2,
+    "RESTORE_MP_PER_SECONDS": 2,
+    "RESTORE_SIGHT_PER_SECONDS": 0.4,
+    "HINT_DURATION": 3,
+    "HINT_MP_COST": 10,
+    "TELEPORT_MP_COST": 5,
+    "TELEPORT_SIGHT_COST_PER_DISTANCE": 0.5,
+    "MIN_SIGHT_FOR_TELEPORT": 1,
+    "MP_FOR_BRIGHTNESS_VALUE_PER_SECOUNDS": 20,
+    "MP_FOR_BRIGHTNESS_COST_PER_SECOUNDS": 5,
+    "MP_FOR_BRIGHTNESS_DECAY_PER_SECOUNDS": 80,
+    "TRANSPARENT_DURATION": 1,
+    "MONSTER_ADDING_INTERVAL": 20,
+    "VISIBLE_BORDER": 0.05,
+    "CELL_SIZE": 20,
+    "GAUGE_HEIGHT": 20,
+    "GAUGE_MARGIN": 10,
+    "ITEM_BOX_SIZE": 90,
+    "ITEM_BOX_MARGIN": 10,
+    "FPS": 30,
+    "MAX_SIZE": 600,
+    "SOUND_DIR": "sounds/",
+    "FONT_DIR": "C:/Windows/Fonts",
+    "FONT_NAME": "HGRGM.TTC",
+    "FONTSIZE": 24,
+    "GAUGE_FONTSIZE": 18,
+    "ITEM_FONTSIZE": 20,
+    "ACTION_LOG_DIR": "log/"
+}
