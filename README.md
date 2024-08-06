@@ -1,5 +1,7 @@
 # PythonDungeonMaker1
 
+![Python Version](https://img.shields.io/badge/python-3.12%2B-blue)
+
 *注: この README.md の一部は AI アシスタント (Claude) によって生成されています。*
 
 ## 目次
@@ -7,6 +9,9 @@
 - [PythonDungeonMaker1](#pythondungeonmaker1)
   - [目次](#目次)
   - [概要](#概要)
+  - [要件](#要件)
+  - [プロジェクト構造](#プロジェクト構造)
+  - [インストール](#インストール)
   - [特徴](#特徴)
   - [アルゴリズムの詳細](#アルゴリズムの詳細)
     - [ダンジョン生成アルゴリズム](#ダンジョン生成アルゴリズム)
@@ -21,16 +26,14 @@
     - [スコア計算](#スコア計算)
     - [ゲームプレイ戦略](#ゲームプレイ戦略)
     - [カスタマイズ方法](#カスタマイズ方法)
-      - [<span style="color: #FF6B6B;">設定のカスタマイズ</span>](#設定のカスタマイズ)
-  - [依存ライブラリ](#依存ライブラリ)
-  - [プロジェクト構造](#プロジェクト構造)
+      - [設定のカスタマイズ](#設定のカスタマイズ)
   - [音声ファイルについて](#音声ファイルについて)
   - [フォント設定](#フォント設定)
     - [Windows ユーザー](#windows-ユーザー)
     - [Mac ユーザー](#mac-ユーザー)
     - [その他のOSユーザー](#その他のosユーザー)
     - [フォント設定に関するトラブルシューティング](#フォント設定に関するトラブルシューティング)
-  - [使用方法](#使用方法)
+    - [ゲームの実行](#ゲームの実行)
   - [開発者向け情報](#開発者向け情報)
     - [コードの構造](#コードの構造)
     - [カスタマイズと拡張](#カスタマイズと拡張)
@@ -40,6 +43,59 @@
 ## 概要
 
 PythonDungeonMaker1は、プロシージャル生成によるダンジョン（迷路）の作成とそれを利用したゲームを実装したPythonプロジェクトです。このプロジェクトでは、高度なアルゴリズムを用いてランダムなダンジョンを生成し、そのダンジョン内でプレイヤーが探索を行うゲームを提供します。
+
+## 要件
+
+- Python 3.12 以上
+- 必要なライブラリ: numpy, pygame, matplotlib, scipy, opencv-python
+
+## プロジェクト構造
+
+.  
+└── PythonDungeonMaker1/  
+&emsp;&emsp;├── [DungeonMaker.py](DungeonMaker.py)  
+&emsp;&emsp;├── [maze_config.json](maze_config.json)  
+&emsp;&emsp;├── [requirements.txt](requirements.txt)  
+&emsp;&emsp;├── [README.md](README.md)  
+&emsp;&emsp;├── [LICENSE](LICENCE)  
+&emsp;&emsp;├── [sounds/](sounds/)  
+&emsp;&emsp;│&emsp;&emsp;├── [README.md](sounds/README.md)  
+&emsp;&emsp;│&emsp;&emsp;├── hint.mp3  
+&emsp;&emsp;│&emsp;&emsp;├── goal.mp3  
+&emsp;&emsp;│&emsp;&emsp;└── ...  
+&emsp;&emsp;└── [log/](log/)  
+
+## インストール
+
+1. Python 3.12 以上がインストールされていることを確認してください。
+   バージョンの確認は以下のコマンドで行えます：
+
+   ```sh
+   python --version
+   ```
+
+2. このリポジトリをクローンまたはダウンロードします：
+
+   ```sh
+   git clone https://github.com/Shinh0707/PythonDungeonMaker1.git
+   cd PythonDungeonMaker1
+   ```
+
+3. 必要なライブラリをインストールします：
+
+   ```sh
+   pip install numpy pygame matplotlib scipy opencv-python
+   ```
+
+   もしくは
+
+   ```sh
+   pip install -r requirements.txt
+   ```
+  
+4. 音声ファイルを `sounds/` ディレクトリに配置します（詳細は[音声ファイルについて](#音声ファイルについて)セクションを参照）。
+
+5. 必要に応じて、`maze_config.json` ファイルでゲームの設定をカスタマイズします。
 
 ## 特徴
 
@@ -316,7 +372,7 @@ if os.path.exists("maze_config.json"):
 game.save_config_to_json("maze_config.json")
 ```
 
-#### <span style="color: #FF6B6B;">設定のカスタマイズ</span>
+#### 設定のカスタマイズ
 
 > **Note:** この特別なセクションを読むのはあなた次第。ゲームの本来の経験を楽しみたい方は、スキップしても大丈夫です。好奇心旺盛な方は、新しい遊び方を発見できるかもしれません。
 
@@ -336,38 +392,6 @@ game.save_config_to_json("maze_config.json")
 探究心旺盛なプレイヤーの方は、これらの設定を少しずつ調整してみると、思わぬ「発見」があるかもしれません。ただし、過度の調整はゲーム体験を損なう可能性があるので、慎重に行ってください。
 
 開発者向けヒント: 設定値の組み合わせによっては、予想外の面白い効果が得られることがあります。例えば、`MAX_SIGHT` と `RESTORE_SIGHT_PER_SECONDS` の比率を変えると、ゲームの戦略が大きく変わるかもしれません。
-
-## 依存ライブラリ
-
-このプロジェクトは以下のライブラリを使用しています：
-
-- numpy
-- pygame
-- matplotlib
-- scipy
-- opencv-python (cv2)
-
-これらのライブラリは以下のコマンドでインストールできます：
-
-```
-pip install numpy pygame matplotlib scipy opencv-python
-```
-
-## プロジェクト構造
-
-PythonDungeonMaker1/  
-│  
-├── DungeonMaker.py       # メインのゲームロジックと迷路生成アルゴリズム  
-├── maze_config.json      # ゲーム設定ファイル  
-├── README.md             # プロジェクトの説明書  
-├── LICENSE               # ライセンス情報  
-│  
-├── sounds/               # ゲーム内で使用する音声ファイル  
-│   ├── hint.mp3  
-│   ├── goal.mp3  
-│   └── ...  
-│  
-└── log/                  # ゲームプレイのログファイル保存ディレクトリ  
 
 ## 音声ファイルについて
 
@@ -439,23 +463,6 @@ Macでは、HGゴシックフォントがデフォルトで利用できないた
 - 一時的に英語フォントを使用する（日本語の表示が正しく行われない可能性があります）。
 
 フォントの設定に関して問題が解決しない場合は、Issue を作成してサポートを求めてください。
-
-## 使用方法
-
-### 環境のセットアップ
-
-1. まず、このリポジトリをクローンまたはダウンロードします：
-  ```
-  git clone https://github.com/Shinh0707/PythonDungeonMaker1.git
-  cd PythonDungeonMaker1
-  ```
-2. 必要なライブラリをインストールします：
-  ```
-  pip install numpy pygame matplotlib scipy opencv-python
-  ```
-3. 音声ファイルを `sounds/` ディレクトリに配置します（詳細は[音声ファイルについて](#音声ファイルについて)セクションを参照）。
-
-4. 必要に応じて、`maze_config.json` ファイルでゲームの設定をカスタマイズします。
 
 ### ゲームの実行
 
