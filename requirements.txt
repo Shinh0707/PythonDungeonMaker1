@@ -1,0 +1,14 @@
+python_version>=3.12
+collections.OrderedDict
+collections.deque
+cv2==4.9.0
+matplotlib.animation==3.8.3
+matplotlib.pyplot==3.8.3
+numpy==1.26.2
+numpy.ndarray==1.26.2
+numpy.zeros_like==1.26.2
+pygame==2.6.0
+scipy.signal==1.13.0
+tqdm.tqdm==4.66.4
+typing.Callable
+typing.Literal
