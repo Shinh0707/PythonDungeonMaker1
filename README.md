@@ -84,7 +84,7 @@ PythonDungeonMaker1は、プロシージャル生成によるダンジョン（�
 3. 必要なライブラリをインストールします：
 
    ```sh
-   pip install numpy pygame matplotlib scipy opencv-python
+   pip install numpy pygame matplotlib scipy opencv-python tqdm
    ```
 
    もしくは
