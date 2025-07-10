@@ -567,9 +567,9 @@ class Analyzer:
         if neighbor_score is None:
             neighbor_score = cls.neighbor_score(field)
         kernel = np.array(
-            [[0, 1, 0],
-             [1, -4, 1],
-             [0, 1, 0]]
+            [[0, -1, 0],
+             [-1, 4, -1],
+             [0, -1, 0]]
         )
         mask = field == 0
         R = np.zeros_like(field, dtype=float)
@@ -726,14 +726,14 @@ class Analyzer:
         if mask is None:
             mask = np.ones_like(sources, dtype=bool)
         # 有効なセルの数を計算
-        count_table = np.sum(np.stack([np.roll(mask, (i, j), (0, 1)) for i, j in [
-                            (0, 1), (0, -1), (1, 0), (-1, 0)]]), axis=0) * mask
+        count_table = (np.sum(np.stack([np.roll(mask, (i, j), (0, 1)) for i, j in [
+                            (0, 1), (0, -1), (1, 0), (-1, 0)]]), axis=0) * mask).astype(np.float64)
 
         # 更新が必要なセルを特定
         updateds_checker = (stable != 0) & (count_table > 0)
 
         fluid_hist = []
-        fluid_current = sources.copy()
+        fluid_current = sources.copy().astype(np.float64)
         thres_fill = (np.mean(sources)*0.2 + np.min(sources)*0.8)
         filled_steps = np.full_like(sources,-1)
 
@@ -748,7 +748,7 @@ class Analyzer:
             # 近傍セルの値の合計を計算
             neighbor_sum = np.sum(np.stack([np.roll(fluid_hist[-1] * stable * mask, (i, j), (0, 1))
                                 for i, j in [(0, 1), (0, -1), (1, 0), (-1, 0)]]), axis=0)
-
+            #print(fluid_current.dtype,neighbor_sum.dtype,count_table.dtype)
             # D_copyを更新
             fluid_current += alpha * neighbor_sum / (count_table + 1) * updateds_checker
             fluid_current -= alpha * fluid_hist[-1] * stable * \
